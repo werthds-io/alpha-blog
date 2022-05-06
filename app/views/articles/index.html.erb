@@ -15,9 +15,14 @@
         <td><%= article.id %></td>
         <td><%= article.title %></td>
         <td><%= article.description %></td>
-        <td><%= link_to 'Article', article_path(article) %></td>
+        <td>
+          <%= link_to '[View]', article_path(article) %>
+          <%= link_to '[Edit]', edit_article_path(article) %>
+          <%= link_to '[Delete]', article_path(article), data: { "turbo-method": :delete , "turbo-confirm": "Are you sure?"} %>
+        </td>
       </tr>
     <% end %>
   </tbody>
-
 </table>
+<br />
+<%= link_to '[New Article]', new_article_path %>
